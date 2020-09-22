@@ -1,0 +1,201 @@
+<html>
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
+
+    <script>
+        $("input").on('input', function () {
+            calculate();
+        });
+
+        $("input").on('change', function () {
+            calculate();
+        });
+
+        function calculate() {
+            $('#output').text(numberWithCommas($('#price').val() * $('#quantity').val()));
+            $('#income').text(numberWithCommas(($('#HA').val() * $('#quantity').val()) - ($('#nats').val() * $('#quantity').val()) - ($('#price').val() * $('#quantity').val())));
+        }
+
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function darkMode() {
+            $('#darkmodebutton').text((i, t) => t == 'Light Mode (Not For Altacore)' ? 'Dark Mode (For Altacore)' : 'Light Mode (Not For Altacore)');
+            $('#title').toggleClass('text-light text-dark');
+            $('#darkmodebutton').toggleClass('btn-light btn-dark');
+            $('body').toggleClass('bg-light bg-dark');
+            $('.navbar').toggleClass('bg-dark bg-light');
+            $('.navbar').toggleClass('navbar-light navbar-dark');
+            $('label').each(function (index) { $(this).toggleClass('text-dark text-light') });
+            $('.tagline').each(function (index) { $(this).toggleClass('text-dark text-light') });
+            $('p').each(function (index) { $(this).toggleClass('text-dark text-light') });
+            $('#income').toggleClass('text-dark text-light')
+            $('#output').toggleClass('text-dark text-light')
+        }
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'RuneScape UF';
+            src: url('RuneScape-UF.eot');
+            src: url('RuneScape-UF.eot?#iefix') format('embedded-opentype'), url('RuneScape-UF.woff2') format('woff2'), url('RuneScape-UF.woff') format('woff'), url('RuneScape-UF.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .topBump {
+            margin-top: 5px;
+        }
+
+        .btn {
+            font-family: 'RuneScape UF';
+        }
+
+        label {
+            font-family: 'RuneScape UF';
+        }
+    </style>
+
+</head>
+<body class="bg-light">
+    <div class="navbar navbar-light bg-dark">
+        <span id="title" style="font-family:'RuneScape UF'; margin-bottom: 0px;" class="narbar-brand h1 text-light">W308Anvil</span>
+        <span id="darkmodebutton" class="btn btn-md btn-light" style="float: right" onclick="darkMode()">Dark Mode (For Altacore)</span>
+    </div>
+    <div class="container">
+        <p class="text-dark" style="text-align: center">Shout out to '<strong>mestrado</strong>' for repping the link to the boys</p>
+        <div style="padding-bottom: 50px;" class="row"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div>
+                    <div class="row" style="text-align: center">
+                        <div class="col-md-4">
+                            <img class="img-fluid" onclick="$('#price').val(37950);$('#HA').val(38400); calculate();" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/c/c9/Rune_2h_sword_detail.png/80px-Rune_2h_sword_detail.png?7627d" alt="rune2h" height="125">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" onclick="$('#price').val(9600);$('#HA').val(9984);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/8/86/Adamant_platebody_detail.png/150px-Adamant_platebody_detail.png?64626" alt="addy" height="125">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid" onclick="$('#price').val(2800);$('#HA').val(3120);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/c/c4/Mithril_platebody_detail.png/150px-Mithril_platebody_detail.png?2875d" alt="mith" height="125">
+                        </div>
+                        <div class="col-md-3">
+                            <img class="img-fluid" onclick="$('#price').val(4350);$('#HA').val(4680);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/b/b2/Green_d%27hide_body_detail.png/100px-Green_d%27hide_body_detail.png?33ffc" alt="greendrag" height="125">
+                        </div>
+                        <div class="col-md-3">
+                            <img class="img-fluid" onclick="$('#price').val(5250);$('#HA').val(5616);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/0/08/Blue_d%27hide_body_detail.png/100px-Blue_d%27hide_body_detail.png?d8e69" alt="bluedrag" height="125">
+                        </div>
+                        <div class="col-md-3">
+                            <img class="img-fluid" onclick="$('#price').val(6350);$('#HA').val(6738);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/f/f0/Red_d%27hide_body_detail.png/100px-Red_d%27hide_body_detail.png?d3931" alt="reddrag" height="125">
+                        </div>
+                        <div class="col-md-3">
+                            <img class="img-fluid" onclick="$('#price').val(7700);$('#HA').val(8088);calculate()" style="cursor: pointer" src="https://oldschool.runescape.wiki/images/thumb/6/69/Black_d%27hide_body_detail.png/100px-Black_d%27hide_body_detail.png?ce75f" alt="blackdrag" height="125">
+                        </div>
+                    </div>
+
+                    <div style="padding-bottom: 10px;" class="row"></div>
+
+
+                    <div style="padding-bottom: 10px;" class="row"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="text-dark" for="price">Price:</label>
+                            <input onchange="calculate();" class="form-control" id="price" placeholder="Click icon or type price." />
+
+                            <label class="text-dark" for="price">Nature Price:</label>
+                            <input onchange="calculate();" class="form-control" value="218" id="nats" placeholder="Click icon or type price." />
+
+                            <label class="text-dark" for="price">High Alch Total:</label>
+                            <input onchange="calculate();" class="form-control" id="HA" placeholder="Click icon or type price." />
+
+                            <label class="text-dark" for="output">Income:</label>
+                            <div id="income" class="text-dark" style="float: right; font-size: 15px; font-family:'RuneScape UF'">0000</div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="text-dark" for="quantity">Quantity:</label>
+                            <input onchange="calculate();" class="form-control" id="quantity" placeholder="Click button or type quantity." />
+
+
+                            <!--<button style="z-index: 10" onclick="$('#quantity').val(100);calculate()" class="btn btn-lg btn-success topBump">100</button>
+
+
+    <button style="z-index: 10" onclick="$('#quantity').val(150);calculate()" class="btn btn-lg btn-success topBump">150</button>-->
+
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(100);calculate()" class="btn btn-lg btn-success topBump">100 </button>
+                            <button style="z-index: 10" onclick="$('#quantity').val(250);calculate()" class="btn btn-lg btn-success topBump">250 </button>
+                            <button style="z-index: 10" onclick="$('#quantity').val(300);calculate()" class="btn btn-lg btn-success topBump">300 </button>
+                            <button style="z-index: 10" onclick="$('#quantity').val(500);calculate()" class="btn btn-lg btn-success topBump">500 </button>
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(750);calculate()" class="btn btn-lg btn-success topBump">750 </button>
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(1000);calculate()" class="btn btn-lg btn-success topBump">1000</button>
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(1250);calculate()" class="btn btn-lg btn-success topBump">1250</button>
+
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(1500);calculate()" class="btn btn-lg btn-success topBump">1500</button>
+
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(2000);calculate()" class="btn btn-lg btn-success topBump">2000</button>
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(2250);calculate()" class="btn btn-lg btn-success topBump">2250</button>
+                            <button style="z-index: 10" onclick="$('#quantity').val(2500);calculate()" class="btn btn-lg btn-success topBump">2500</button>
+                            <button style="z-index: 10" onclick="$('#quantity').val(2750);calculate()" class="btn btn-lg btn-success topBump">2750</button>
+
+                            <button style="z-index: 10" onclick="$('#quantity').val(3000);calculate()" class="btn btn-lg btn-success topBump">3000</button>
+
+
+                            <!--<button style="z-index: 10" onclick="$('#quantity').val(4000);calculate()" class="btn btn-lg btn-success topBump">4000</button>-->
+                            <!--<button style="z-index: 10" onclick="$('#quantity').val(2500);calculate()" class="btn btn-lg btn-success topBump">2500</button>
+
+    <button style="z-index: 10" onclick="$('#quantity').val(3000);calculate()" class="btn btn-lg btn-success topBump">3000</button>-->
+                            <img style="float: right; margin-top: 5px; max-width: 125px; width: 25%" src="https://oldschool.runescape.wiki/images/thumb/6/63/Coins_detail.png/120px-Coins_detail.png?404bc">
+                            <div class="text-dark" id="output" style="font-size: 3.7vw; float: right; line-height: 2.5; margin-right: 15px; font-family: 'RuneScape UF'">0</div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!--<div style="z-index:-1;padding-top: 50px;position:relative" class="row justify-content-center">
+                        <div class="col-md-12">
+
+                            <img style="float: right;" src="https://oldschool.runescape.wiki/images/thumb/6/63/Coins_detail.png/120px-Coins_detail.png?404bc" width="150">
+                            <div class="text-dark" id="output" style="font-size: 80px; float: right; line-height: 2.5; margin-right: 15px; font-family: 'RuneScape UF'">0</div>
+
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+
+
+        </div>
+        <span class="text-dark tagline" style="font-family: 'RuneScape UF';margin-top: 5px;
+        display: inline-block;
+        text-align: center;
+        width: 100%">www.patrickrottman.com - Patrick Rottman</span>
+    </div>
+</body>
+
+
+</html>
